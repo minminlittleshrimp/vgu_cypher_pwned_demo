@@ -1,0 +1,6 @@
+
+services:
+  hidden_shell:
+    build: .
+    ports:
+      - "1338:1338"
